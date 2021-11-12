@@ -55,3 +55,20 @@ Fire up the container with docker-compose.prod.yml:
 ```sh
 $ docker-compose -f docker-compose.prod.yml up -d --build
 ```
+
+
+## NextJS Application
+
+### Building your Docker image
+You are all set up to build your Docker image, we’ll call it “client”. You can do so with the following command:
+
+```sh
+docker build -t client .
+```
+
+### Deploying your Docker container
+Consider now that you want to browse the pages build in your container, for this you’ll need to run the container built and then bind a port from your container to your local environment.
+
+```sh
+docker build -t client . && docker run --name CLIENT_CONTAINER -p 0.0.0.0:5000:3000 client
+```
